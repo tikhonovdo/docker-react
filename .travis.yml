@@ -7,3 +7,12 @@ before_install:
 
 script:
   - docker run -e CI=true chitzkoy/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-651416516786"
+  on:
+    branch: master
